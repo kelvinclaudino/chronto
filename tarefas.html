@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adicionar Tarefa</title>
+  <link rel="stylesheet" href="./css/tarefas.css">
+</head>
+
+<body>
+  <div class="app-container">
+    <h2>Nova Tarefa</h2>
+
+    <!-- Formulário -->
+    <form id="taskForm">
+      <label>Data:</label>
+      <input type="date" id="dateInput" required><br><br>
+
+      <label>Hora:</label>
+      <input type="time" id="timeInput"><br><br>
+
+      <label>Título:</label>
+      <input type="text" id="titleInput" required><br><br>
+
+      <label>Descrição:</label>
+      <textarea id="descInput"></textarea><br><br>
+
+      <label>Prioridade:</label>
+      <select id="priorityInput">
+        <option value="baixa">Baixa</option>
+        <option value="media">Média</option>
+        <option value="alta">Alta</option>
+      </select><br><br>
+
+      <button type="submit">Salvar</button>
+    </form>
+
+    <br>
+    <a href="calendar.html" class="voltar">⬅ Voltar ao calendário</a>
+
+    <!-- Lista de tarefas -->
+    <h3>Tarefas cadastradas</h3>
+    <ul id="taskList"></ul>
+  </div>
+
+  <script src="./script/tarefas.js"></script>
+</body>
+
+</html>

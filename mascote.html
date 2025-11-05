@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Chrontoque — Mascote</title>
+    <style>
+        :root {
+            --bg: #fde8d7;
+            /* light peach */
+            --accent: #8C94DF;
+            ;
+            /* purple */
+            --card-blue: #87B5F1;
+            /* blue behind mascot */
+            --badge: #A7BE8A;
+            /* green badge */
+            --white: #E2D5C4;
+            --muted: #6b6b6b;
+            --radius: 22px;
+            --container-width: 420px;
+            font-family: 'Poppins', 'Segoe UI', Roboto, system-ui, -apple-system, Arial;
+        }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            background: var(--bg)
+        }
+
+        /* Top bar (keeps same style as project) */
+        .topbar {
+            height: 72px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 18px;
+            box-sizing: border-box;
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            z-index: 30
+        }
+
+        .topbar .left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            justify-content: space-between;
+        }
+
+        .topbar .icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.06);
+            cursor: pointer
+        }
+
+        .title-sm {
+            text-transform: uppercase;
+        }
+
+        .topbar .title-sm {
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 700;
+
+        }
+
+        /* Main container aligns content below topbar */
+        .container {
+            max-width: var(--container-width);
+            margin: 110px auto 160px;
+            padding: 0 18px;
+            box-sizing: border-box
+        }
+
+        .title {
+            font-family: 'Baloo 2', 'Comic Sans MS', cursive;
+            text-align: center;
+            font-size: 42px;
+            color: #2b2b2b;
+            margin: 8px 0
+        }
+
+        /* Card that contains the mascot */
+        .card {
+            background: var(--card-blue);
+            border-radius: 10px;
+            padding: 0;
+            position: relative;
+            overflow: visible;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06)
+        }
+
+        .card-inner {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center
+        }
+
+        /* centralizar imagem (novo requisito) */
+        .mascot-wrap {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center
+        }
+
+        .mascot {
+            width: 100%;
+            max-width: 360px;
+            height: auto;
+            border-radius: 18px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.02));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 18px;
+            box-sizing: border-box
+        }
+
+        .mascot img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            display: block
+        }
+
+        /* badge at bottom - stretched and rounded to match screenshot */
+        .badge {
+            position: relative;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 360px;
+            margin: -12px auto 18px;
+            background: var(--badge);
+            height: 64px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 22px;
+            box-sizing: border-box;
+            color: var(--white);
+            font-weight: 600
+        }
+
+        .badge .group {
+            display: flex;
+            align-items: center;
+            gap: 12px
+        }
+
+        .badge svg {
+            width: 34px;
+            height: 34px;
+            opacity: 0.95
+        }
+
+        .badge .count {
+            font-size: 20px
+        }
+
+        /* bottom navigation and FAB */
+        .spacer {
+            height: 120px
+        }
+
+        .bottom-nav {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 94px;
+            background: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 28px;
+            box-sizing: border-box
+        }
+
+        .nav-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            opacity: 0.95
+        }
+
+        .fab-wrap {
+            position: fixed;
+            left: 50%;
+            transform: translateX(-50%);
+            bottom: 36px
+        }
+
+        .fab {
+            width: 88px;
+            height: 88px;
+            border-radius: 50%;
+            background: var(--bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+            border: 6px solid var(--accent);
+            cursor: pointer
+        }
+
+        .fab svg {
+            width: 36px;
+            height: 36px
+        }
+
+        /* Simple slide menu */
+        .menu-overlay {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.35);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity .22s;
+            z-index: 40
+        }
+
+        .menu {
+            position: fixed;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 260px;
+            background: var(--white);
+            box-shadow: 8px 0 24px rgba(0, 0, 0, 0.12);
+            transform: translateX(-100%);
+            transition: transform .28s;
+            z-index: 50;
+            padding: 20px;
+            box-sizing: border-box
+        }
+
+        .menu.open {
+            transform: translateX(0)
+        }
+
+        .menu-overlay.open {
+            opacity: 1;
+            visibility: visible
+        }
+
+        .menu h3 {
+            margin: 6px 0 18px;
+            font-size: 18px
+        }
+
+        .menu .item {
+            padding: 12px 8px;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        .menu .item:hover {
+            background: rgba(0, 0, 0, 0.04)
+        }
+
+        .topbar a {
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+        @media(max-width:420px) {
+            .title {
+                font-size: 36px
+            }
+
+            .badge {
+                height: 60px
+            }
+
+            .fab {
+                width: 76px;
+                height: 76px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="topbar">
+
+        <a href="./calendar.html">⬅️ Voltar</a>
+        <div class="title-sm">Chronto</div>
+
+
+    </header>
+
+
+
+
+
+    <main class="container">
+        <h1 class="title">Chrontinho</h1>
+
+        <section class="card">
+            <div class="card-inner">
+                <div class="mascot-wrap">
+                    <div class="mascot">
+                        <!-- substitua src pelo caminho real da imagem do mascote do projeto -->
+                        <img id="mascoteImg" src="./imagens/mascote.png.png" alt="Mascote Chrontinho" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="badge" aria-hidden="false">
+
+
+
+            </div>
+        </section>
+
+        <div class="spacer"></div>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Navegação">
+
+
+        <div class="fab-wrap">
+            <button id="fab" class="fab" title="Adicionar">
+                <a href="./tarefas.html">
+                    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 5V19M5 12H19" stroke="#9b8fe0" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                </a>
+            </button>
+        </div>
+
+
+    </nav>
+
+
+
+</body>
+
+</html>

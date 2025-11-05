@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendário Agenda</title>
+    <link rel="stylesheet" href="./css/calendar.css">
+</head>
+
+<body>
+    <header class="cabecalho">
+
+    </header>
+    <section>
+        <div class="app-container">
+            <header>
+                <button id="prevMonth">⬅</button>
+                <h2 id="monthYear"></h2>
+                <button id="nextMonth">➡</button>
+
+            </header>
+
+            <div id="calendar"></div>
+
+            <div id="taskList">
+                <h3>Tarefas do dia</h3>
+                <ul id="tasks"></ul>
+            </div>
+        </div>
+        
+    </section>
+
+
+    <footer>
+
+        <!-- Botão para abrir/fechar menu -->
+        <button class="menu-btn" onclick="alternarMenu()">☰</button>
+
+        <!-- Menu lateral -->
+        <div id="menuLateral" class="menu">
+            <button onclick="abrirPagina('comunidades.html')">👥 Comunidades</button>
+            <button onclick="abrirPagina('graficos.html')">📊 Gráficos</button>
+            <button onclick="abrirPagina('mascote.html')">🐒 Chrontinho</button>
+            <button onclick="abrirPagina('configuracoes.html')">⚙️ Configurações</button>
+        </div>
+        <button id="addTaskBtn">+ Adiconar Tarefa</button>
+    </footer>
+    <script src="./script/calendar.js"></script>
+
+    <script>
+        function alternarMenu() {
+            const menu = document.getElementById('menuLateral');
+            menu.classList.toggle('ativo'); // abre e fecha o menu
+        }
+
+        function abrirPagina(pagina) {
+            window.location.href = pagina; // redireciona para outro HTML
+        }
+    </script>
+</body>
+
+</html>
