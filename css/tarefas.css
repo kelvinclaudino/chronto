@@ -1,0 +1,90 @@
+:root {
+  --cor-primaria: #FEBD57;
+  --cor-secundaria: #8C94DF;
+  --cor-terceira: #E2D5C4;
+  --cor-quarta: #A7BE8A;
+}
+
+body {
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  margin: 0;
+  padding: 0;
+  background: var(--cor-secundaria);
+}
+
+.app-container {
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  background: var(--cor-terceira);
+  border-radius: 12px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2 {
+  text-align: center;
+  text-transform: uppercase;
+
+  background-color: var(--cor-secundaria);
+  padding: 5px 20px;
+  border-radius: 50px;
+
+
+}
+
+h3 {
+  margin-top: 40px;
+  margin-bottom: 5px;
+}
+
+form label {
+  font-weight: bold;
+}
+
+input,
+textarea,
+select,
+button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+button {
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #45a049;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f0f0f0;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+li button {
+  background: red;
+  margin-top: 5px;
+}
+
+.voltar {
+  margin-top: 20px;
+}
+

@@ -1,0 +1,32 @@
+body {
+  font-family: "Arial Rounded MT Bold", sans-serif;
+  background: linear-gradient(to bottom, #8C94DF 50%, #E2D5C4 50%);
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  background-color: #FEBD57;
+  padding: 1em;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+canvas {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+footer nav {
+  display: flex;
+  justify-content: space-around;
+  background-color: #E2D5C4;
+  padding: 10px;
+}
