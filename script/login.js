@@ -225,7 +225,5 @@ window.onload = () => {
   gerarGrafico();
   gerarCalendario();
 };
-  gerarGrafico();
-  gerarCalendario();
-};
+
 
